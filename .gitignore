@@ -3,7 +3,10 @@ build/
 bin/
 out/
 
-# Compiled objects and libraries
+# Compiled binaries without extension (Linux)
+pandemic_sim
+sweep
+test_correctness
 *.o
 *.obj
 *.exe

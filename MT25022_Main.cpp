@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
         
         // Create and run simulation
         Simulation sim(params);
-        SimSummary summary = sim.run();
+        [[maybe_unused]] SimSummary summary = sim.run();
         
         return 0;
         
