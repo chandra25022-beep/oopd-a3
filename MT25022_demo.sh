@@ -101,8 +101,8 @@ success "Parameter sweep completed asynchronously."
 # ------------------------------------------------------------------------------
 header "STEP 6: Parts D & E — Scaling, Interventions & Publication-Ready SVGs"
 # ------------------------------------------------------------------------------
-info "Executing automated benchmark suite (run_experiments.py)..."
-python3 run_experiments.py --quick --all
+info "Executing automated benchmark suite (MT25022_run_experiments.py)..."
+python3 MT25022_run_experiments.py --quick --all
 echo ""
 info "Generated standalone SVG charts:"
 ls -lh chart_*.svg | awk '{print "  " $9, "(" $5 ")"}'
@@ -136,7 +136,7 @@ success "All exceptions correctly caught and handled with informative error mess
 header "STEP 8: Final Submission ZIP Packaging (Per Assignment Rules)"
 # ------------------------------------------------------------------------------
 info "Packaging source files into MT25022_Assignment3.zip..."
-python3 -m zipfile -c MT25022_Assignment3.zip MT25022_*.h MT25022_*.cpp CMakeLists.txt Makefile Readme.md run_experiments.py demo_all.sh
+python3 -m zipfile -c MT25022_Assignment3.zip MT25022_*.h MT25022_*.cpp CMakeLists.txt Makefile Readme.md MT25022_run_experiments.py MT25022_demo.sh
 success "ZIP created successfully: MT25022_Assignment3.zip"
 info "Listing contents of submission ZIP:"
 python3 -m zipfile -l MT25022_Assignment3.zip
@@ -147,3 +147,4 @@ header "DEMONSTRATION COMPLETE — ALL 100/100 CRITERIA VERIFIED!"
 # Cleanup temporary test files
 rm -f demo_seq.csv demo_tpd.csv demo_pool.csv demo_sweep.csv tmp.csv out_sync.csv out_async.csv
 rm -rf demo_snap_sync demo_snap_async
+

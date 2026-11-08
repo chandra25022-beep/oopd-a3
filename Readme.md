@@ -171,6 +171,9 @@ MT25022_ParameterSweep.h/.cpp - Parameter sweep runner
 MT25022_Main.cpp           - Main entry point
 MT25022_Sweep.cpp          - Sweep entry point
 MT25022_Test.cpp           - Correctness verification
-Makefile                   - Build system
-Readme.md                  - This file
+MT25022_run_experiments.py - Automated benchmark runner and SVG visualizer
+MT25022_demo.sh            - Complete all-in-one live demonstration script
+CMakeLists.txt             - CMake cross-platform build configuration
+Makefile                   - GNU Make build configuration
+Readme.md                  - Documentation and usage guide
 ```

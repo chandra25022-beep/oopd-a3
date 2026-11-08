@@ -28,8 +28,11 @@ seq_output.csv
 tpd_output.csv
 pool_output.csv
 sweep_results.csv
+sweep_run_*.csv
 epi_*.csv
+demo_*.csv
 *.svg
+*.zip
 
 # IDE and OS files
 .vscode/
