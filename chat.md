@@ -293,28 +293,31 @@ Run simulations with varying:
 - Vaccination fraction $v \in [0.0, 0.8]$: Show herd immunity (where epidemic fails to take off).
 - Masks ($m = 0.5$) vs Lockdown ($\lambda = 0.3, \theta_{\text{on}} = 0.02$): Compare how each flattens the curve.
 
-### Step 4: Python Script for Report Graphs (Optional Helper)
-You can run this quick Python script to generate plots from your output CSVs:
-```python
-import pandas as pd
-import matplotlib.pyplot as plt
+### Step 4: Automated Experiment Runner & Visualizer (`run_experiments.py`)
+A comprehensive automation script `run_experiments.py` has been created and tested. It runs the experiments, prints formatted Markdown tables, and generates publication-ready SVG charts (no external dependencies required):
 
-df = pd.read_csv("output.csv")
-plt.figure(figsize=(10, 6))
-plt.plot(df['day'], df['I_count'], label='Infected (I)', color='red')
-plt.plot(df['day'], df['S_count'], label='Susceptible (S)', color='blue')
-plt.plot(df['day'], df['R_count'], label='Recovered (R)', color='green')
-plt.plot(df['day'], df['D_count'], label='Dead (D)', color='black')
-plt.xlabel("Day")
-plt.ylabel("Population Count")
-plt.title("Pandemic Spread Curves (N=1000)")
-plt.legend()
-plt.grid(True)
-plt.savefig("pandemic_curve.png")
+```bash
+# Run all benchmarks and generate all charts in quick demo mode (~15 seconds):
+python3 run_experiments.py --quick --all
+
+# Or run specific parts:
+python3 run_experiments.py --quick --part D1    # Strong scaling (S(T), E(T), Karp-Flatt)
+python3 run_experiments.py --quick --part D3    # Chunk strategy comparison (row, square, interleaved)
+python3 run_experiments.py --quick --part D5    # I/O latency hiding (Sync vs Async, up to 6x speedup)
+python3 run_experiments.py --quick --part E     # 4 Intervention scenarios (I(t) epidemic curves)
 ```
 
+Generated charts:
+- `chart_d1_speedup.svg` & `chart_d1_efficiency.svg`
+- `chart_d3_chunks.svg`
+- `chart_d5_io_hiding.svg`
+- `chart_e_interventions.svg`
+
 ### Step 5: Final Submission Packaging
-Create the final submission archive:
+Create the final submission archive with one command:
+```bash
+python3 -m zipfile -c MT25022_Assignment3.zip MT25022_*.h MT25022_*.cpp CMakeLists.txt Makefile Readme.md run_experiments.py
+```
 - Name: `MT25022_Assignment3.zip`
 - Ensure it contains all `MT25022_*` files, `Readme.md`, `Makefile`, `CMakeLists.txt`, and your final PDF report.
 - Submit only via Google Classroom as specified.
