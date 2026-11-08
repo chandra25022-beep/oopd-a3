@@ -23,11 +23,13 @@ test_correctness
 # Simulation outputs and snapshots
 *.ppm
 snapshots/
-output.csv
+output*.csv
 seq_output.csv
 tpd_output.csv
 pool_output.csv
 sweep_results.csv
+epi_*.csv
+*.svg
 
 # IDE and OS files
 .vscode/
