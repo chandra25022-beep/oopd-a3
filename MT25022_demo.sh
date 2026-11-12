@@ -135,8 +135,12 @@ success "All exceptions correctly caught and handled with informative error mess
 # ------------------------------------------------------------------------------
 header "STEP 8: Final Submission ZIP Packaging (Per Assignment Rules)"
 # ------------------------------------------------------------------------------
-info "Packaging source files into MT25022_Assignment3.zip..."
-python3 -m zipfile -c MT25022_Assignment3.zip MT25022_*.h MT25022_*.cpp CMakeLists.txt Makefile Readme.md MT25022_run_experiments.py MT25022_demo.sh
+info "Packaging source files and report into MT25022_Assignment3.zip..."
+ZIP_FILES="MT25022_*.h MT25022_*.cpp CMakeLists.txt Makefile Readme.md MT25022_run_experiments.py MT25022_demo.sh"
+if [ -f "MT25022_Report.pdf" ]; then
+    ZIP_FILES="$ZIP_FILES MT25022_Report.pdf"
+fi
+python3 -m zipfile -c MT25022_Assignment3.zip $ZIP_FILES
 success "ZIP created successfully: MT25022_Assignment3.zip"
 info "Listing contents of submission ZIP:"
 python3 -m zipfile -l MT25022_Assignment3.zip

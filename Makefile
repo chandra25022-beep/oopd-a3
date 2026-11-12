@@ -86,12 +86,12 @@ run_perf_weak: $(MAIN_TARGET)
 			--csv perf_weak_T$$T.csv 2>&1 | grep "Elapsed"; \
 	done
 
-# Clean build artifacts
+# Clean build artifacts and simulation results
 clean:
 	rm -f *.o $(MAIN_TARGET) $(SWEEP_TARGET) $(TEST_TARGET)
 	rm -f *.exe
-	rm -f test_*.csv sweep_run_*.csv
-	rm -rf snapshots/
+	rm -f *.csv *.ppm *.svg
+	rm -rf snapshots/ demo_snap* build/
 
 # Help
 help:

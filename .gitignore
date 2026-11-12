@@ -33,6 +33,8 @@ epi_*.csv
 demo_*.csv
 *.svg
 *.zip
+*.pdf
+generate_report.py
 
 # IDE and OS files
 .vscode/
