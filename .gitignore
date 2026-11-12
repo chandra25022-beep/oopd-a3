@@ -35,6 +35,7 @@ demo_*.csv
 *.zip
 *.pdf
 generate_report.py
+__pycache__/
 
 # IDE and OS files
 .vscode/
